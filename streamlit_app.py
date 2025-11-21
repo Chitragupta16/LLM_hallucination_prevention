@@ -20,11 +20,8 @@ env_path = os.path.join(backend_path, '.env')
 load_dotenv(env_path)
 
 # Configure Gemini
-try:
-    api_key = st.secrets["GEMINI_API_KEY"]
-except:
-    api_key = os.getenv("GEMINI_API_KEY")
-genai.configure(api_key)
+
+genai.configure(api_key = st.secrets["GEMINI_API_KEY"])
 model = genai.GenerativeModel('gemini-flash-latest')
 
 # Page config
